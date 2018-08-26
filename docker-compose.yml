@@ -6,6 +6,8 @@ services:
     build:
       context: db/
       dockerfile: Dockerfile-postgres
+    volumes:
+      - "${DBDATA_PATH}:/var/lib/postgresql/data"
   davical_tool:
     image: janlo/davical:tool
     env_file: db/secrets.env
